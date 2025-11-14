@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontak</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-50 text-gray-800 font-sans">
+    <!-- Navbar -->
+    <header class="flex items-center justify-between bg-white shadow px-6 py-3">
+      <div class="flex items-center space-x-3">
+        <img
+          src="https://www.svgrepo.com/show/530356/user.svg"
+          alt="logo"
+          class="w-6 h-6"
+        />
+        <h1 class="text-xl font-semibold">Kontak</h1>
+      </div>
+      <input
+        type="text"
+        placeholder="Telusuri"
+        class="border rounded-lg px-3 py-1.5 w-64"
+      />
+    </header>
+
+    <!-- Main -->
+    <div class="flex">
+      <!-- Sidebar -->
+      <aside class="w-64 bg-white h-screen border-r p-4 space-y-4">
+        <button
+          class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg"
+        >
+          + Buat kontak
+        </button>
+
+        <nav class="space-y-2">
+          <a
+            href="#"
+            class="flex items-center space-x-3 bg-blue-100 text-blue-700 px-3 py-2 rounded-lg"
+          >
+            <span>👤</span>
+            <span>Kontak</span>
+          </a>
+          <a
+            href="#"
+            class="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-100"
+          >
+            <span>⏱️</span><span>Sering</span>
+          </a>
+          <a
+            href="#"
+            class="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-100"
+          >
+            <span>📁</span><span>Kontak lainnya</span>
+          </a>
+        </nav>
+
+        <div class="border-t pt-3">
+          <h2 class="text-sm text-gray-500 mb-2">Perbaiki & kelola</h2>
+          <a
+            href="#"
+            class="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-100"
+          >
+            <span>🛠️</span
+            ><span
+              >Gabungkan & perbaiki
+              <span class="bg-red-500 text-white text-xs px-2 rounded-full ml-1"
+                >11</span
+              ></span
+            >
+          </a>
+          <a
+            href="#"
+            class="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-100"
+          >
+            <span>⬇️</span><span>Impor</span>
+          </a>
+          <a
+            href="#"
+            class="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-100"
+          >
+            <span>🗑️</span><span>Sampah</span>
+          </a>
+        </div>
+      </aside>
+
+      
+      <main class="flex-1 p-6 overflow-y-auto">
+      
+        <h2 class="text-lg font-semibold mb-3">Kontak</h2>
+
+        <table class="w-full bg-white shadow rounded-lg">
+          <thead class="bg-gray-100 border-b">
+            <tr>
+              <th class="text-left py-2 px-4">Nama</th>
+              <th class="text-left py-2 px-4">Email</th>
+              <th class="text-left py-2 px-4">Nomor telepon</th>
+            </tr>
+          </thead>
+          >
+        </table>
+      </main>
+
+      </aside>
+    </div>
+  </body>
+</html>
