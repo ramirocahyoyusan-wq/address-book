@@ -3,106 +3,106 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kontak</title>
+    <title>Kontak Modern</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="bg-gray-50 text-gray-800 font-sans">
-    <!-- Navbar -->
-    <header class="flex items-center justify-between bg-white shadow px-6 py-3">
-      <div class="flex items-center space-x-3">
-        <img
-          src="https://www.svgrepo.com/show/530356/user.svg"
-          alt="logo"
-          class="w-6 h-6"
-        />
-        <h1 class="text-xl font-semibold">Kontak</h1>
+
+  <body
+    class="bg-gray-100 dark:bg-gray-900 dark:text-gray-100 min-h-screen flex"
+  >
+    <!-- Sidebar -->
+    <aside
+      class="w-64 bg-white dark:bg-gray-800 h-screen border-r dark:border-gray-700 p-5 shadow space-y-6"
+    >
+      <button
+        id="addBtn"
+        class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-xl shadow"
+      >
+        + Tambah
+      </button>
+
+      <nav class="space-y-2">
+        <a
+          href="#"
+          class="flex items-center space-x-3 px-3 py-2.5 rounded-xl bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200 font-medium"
+          >👤 <span>Kontak</span></a
+        >
+      </nav>
+
+      <div class="border-t dark:border-gray-600 pt-4">
+        <h2
+          class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase mb-2"
+        >
+          Perbaiki & Kelola
+        </h2>
+        <button
+          id="trashBtn"
+          class="flex items-center space-x-3 px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 w-full"
+        >
+          🗑️ <span>Sampah</span>
+        </button>
       </div>
-      <input
-        type="text"
-        placeholder="Telusuri"
-        class="border rounded-lg px-3 py-1.5 w-64"
-      />
-    </header>
+    </aside>
 
     <!-- Main -->
-    <div class="flex">
-      <!-- Sidebar -->
-      <aside class="w-64 bg-white h-screen border-r p-4 space-y-4">
-        <button
-          class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg"
-        >
-          + Buat kontak
-        </button>
+    <main class="flex-1 p-6 overflow-y-auto">
+      <h2 class="text-2xl font-semibold mb-4">Daftar Kontak</h2>
+      <div
+        id="contactTable"
+        class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden"
+      ></div>
+    </main>
 
-        <nav class="space-y-2">
-          <a
-            href="#"
-            class="flex items-center space-x-3 bg-blue-100 text-blue-700 px-3 py-2 rounded-lg"
-          >
-            <span>👤</span>
-            <span>Kontak</span>
-          </a>
-          <a
-            href="#"
-            class="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-100"
-          >
-            <span>⏱️</span><span>Sering</span>
-          </a>
-          <a
-            href="#"
-            class="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-100"
-          >
-            <span>📁</span><span>Kontak lainnya</span>
-          </a>
-        </nav>
+    <!-- MODAL -->
+    <div
+      id="modal"
+      class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4"
+    >
+      <div
+        class="bg-white dark:bg-gray-800 p-6 rounded-xl w-full max-w-md shadow-xl"
+      >
+        <h3 id="modalTitle" class="text-xl font-semibold mb-4">
+          Tambah Kontak
+        </h3>
 
-        <div class="border-t pt-3">
-          <h2 class="text-sm text-gray-500 mb-2">Perbaiki & kelola</h2>
-          <a
-            href="#"
-            class="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-100"
+        <input
+          id="nameInput"
+          type="text"
+          placeholder="Nama"
+          class="w-full mb-3 px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600"
+        />
+
+        <input
+          id="emailInput"
+          type="text"
+          placeholder="Email"
+          class="w-full mb-3 px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600"
+        />
+
+        <input
+          id="phoneInput"
+          type="text"
+          placeholder="Nomor Telepon"
+          class="w-full mb-5 px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600"
+        />
+
+        <div class="flex justify-end space-x-3">
+          <button
+            id="closeModal"
+            class="px-4 py-2 rounded-lg bg-gray-300 dark:bg-gray-700"
           >
-            <span>🛠️</span
-            ><span
-              >Gabungkan & perbaiki
-              <span class="bg-red-500 text-white text-xs px-2 rounded-full ml-1"
-                >11</span
-              ></span
-            >
-          </a>
-          <a
-            href="#"
-            class="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-100"
+            Batal
+          </button>
+          <button
+            id="saveBtn"
+            class="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white"
           >
-            <span>⬇️</span><span>Impor</span>
-          </a>
-          <a
-            href="#"
-            class="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-100"
-          >
-            <span>🗑️</span><span>Sampah</span>
-          </a>
+            Simpan
+          </button>
         </div>
-      </aside>
-
-      
-      <main class="flex-1 p-6 overflow-y-auto">
-      
-        <h2 class="text-lg font-semibold mb-3">Kontak</h2>
-
-        <table class="w-full bg-white shadow rounded-lg">
-          <thead class="bg-gray-100 border-b">
-            <tr>
-              <th class="text-left py-2 px-4">Nama</th>
-              <th class="text-left py-2 px-4">Email</th>
-              <th class="text-left py-2 px-4">Nomor telepon</th>
-            </tr>
-          </thead>
-          >
-        </table>
-      </main>
-
-      </aside>
+      </div>
     </div>
+
+    <script src="/assets/scripts.js"></script>
   </body>
 </html>
