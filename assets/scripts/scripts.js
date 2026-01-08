@@ -106,3 +106,4 @@ document.getElementById("trashBtn").onclick = () => {
 };
 
 renderTable();
+
