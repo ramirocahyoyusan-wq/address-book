@@ -5,17 +5,25 @@ let contacts = JSON.parse(localStorage.getItem("contacts")) || [
 let trash = JSON.parse(localStorage.getItem("trash")) || [];
 let editId = null;
 
+const nameInput = document.getElementById("nameInput");
+const emailInput = document.getElementById("emailInput");
+const phoneInput = document.getElementById("phoneInput");
+const searchInput = document.getElementById("searchInput");
+
 const saveData = () => {
   localStorage.setItem("contacts", JSON.stringify(contacts));
   localStorage.setItem("trash", JSON.stringify(trash));
 };
 
-const renderTable = () => {
+const renderTable = (data = contacts) => {
   const container = document.getElementById("contactTable");
-  if (contacts.length === 0) {
-    container.innerHTML = "<p class='text-gray-500 italic text-center py-4'>Tidak ada kontak.</p>";
+
+  if (data.length === 0) {
+    container.innerHTML =
+      "<p class='text-gray-500 italic text-center py-4'>Kontak tidak ditemukan.</p>";
     return;
   }
+
   container.innerHTML = `
     <table class='w-full text-sm'>
       <thead class='bg-gray-100 border-b'>
@@ -27,14 +35,14 @@ const renderTable = () => {
         </tr>
       </thead>
       <tbody>
-        ${contacts.map(c => `
+        ${data.map(c => `
           <tr class='border-b hover:bg-gray-50'>
             <td class='py-3 px-4'>${c.name}</td>
             <td class='py-3 px-4'>${c.email}</td>
             <td class='py-3 px-4'>${c.phone}</td>
             <td class='py-3 px-4 space-x-2'>
-              <button onclick='editContact(${c.id})' class='px-3 py-1.5 bg-yellow-400 hover:bg-yellow-500 text-white rounded-lg text-xs'>Edit</button>
-              <button onclick='deleteContact(${c.id})' class='px-3 py-1.5 bg-red-500 hover:bg-red-600 text-white rounded-lg text-xs'>Hapus</button>
+              <button onclick='editContact(${c.id})' class='px-3 py-1.5 bg-yellow-400 text-white rounded-lg text-xs'>Edit</button>
+              <button onclick='deleteContact(${c.id})' class='px-3 py-1.5 bg-red-500 text-white rounded-lg text-xs'>Hapus</button>
             </td>
           </tr>
         `).join("")}
@@ -64,6 +72,7 @@ document.getElementById("closeModal").onclick = closeModal;
 
 const editContact = (id) => {
   const c = contacts.find(x => x.id === id);
+  if (!c) return;
   editId = id;
   nameInput.value = c.name;
   emailInput.value = c.email;
@@ -73,6 +82,7 @@ const editContact = (id) => {
 
 const deleteContact = (id) => {
   const index = contacts.findIndex(x => x.id === id);
+  if (index === -1) return;
   trash.push(contacts[index]);
   contacts.splice(index, 1);
   saveData();
@@ -105,5 +115,16 @@ document.getElementById("trashBtn").onclick = () => {
   alert("Data yang dihapus ada di trash.");
 };
 
-renderTable();
+searchInput.addEventListener("input", () => {
+  const keyword = searchInput.value.toLowerCase();
 
+  const filtered = contacts.filter(c =>
+    c.name.toLowerCase().includes(keyword) ||
+    c.email.toLowerCase().includes(keyword) ||
+    c.phone.includes(keyword)
+  );
+
+  renderTable(filtered);
+});
+
+renderTable();

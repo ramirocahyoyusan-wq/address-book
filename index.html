@@ -24,8 +24,9 @@
         <a
           href="#"
           class="flex items-center space-x-3 px-3 py-2.5 rounded-xl bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200 font-medium"
-          >👤 <span>Kontak</span></a
         >
+          👤 <span>Kontak</span>
+        </a>
       </nav>
 
       <div class="border-t dark:border-gray-600 pt-4">
@@ -45,6 +46,14 @@
 
     <main class="flex-1 p-6 overflow-y-auto">
       <h2 class="text-2xl font-semibold mb-4">Daftar Kontak</h2>
+
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="Cari nama, email, atau telepon..."
+        class="w-full mb-4 px-4 py-2 border rounded-xl dark:bg-gray-800 dark:border-gray-600"
+      />
+
       <div
         id="contactTable"
         class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden"
@@ -71,14 +80,14 @@
 
         <input
           id="emailInput"
-          type="text"
+          type="email"
           placeholder="Email"
           class="w-full mb-3 px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600"
         />
 
         <input
           id="phoneInput"
-          type="text"
+          type="tel"
           placeholder="Nomor Telepon"
           class="w-full mb-5 px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600"
         />
